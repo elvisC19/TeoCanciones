@@ -7,47 +7,49 @@
 #include "trackSong.h"
 #include "tracker.h"
 
-//vectores y listas usar para este ejercicio 
+
 
 int main()
 {
 
     // Crear algunas canciones
-    song s1("Cancion1", 3, 30); // 3 minutos y 30 segundos
-    song s2("Cancion2", 2, 45); // 2 minutos y 45 segundos
-    song s3("Cancion3", 4, 15); // 4 minutos y 15 segundos
+    song s1("Cancion1", 3, 30); 
+    song s2("Cancion2", 2, 45); 
+    song s3("Cancion3", 4, 15); 
 
-    // Crear un rastreador
+    
     tracker t1;
     t1.SetSong(s1); // Establecer la canción actual para el rastreador
 
     // Agregar historial de reproducciones
-    t1.addHistorical(trackSong(1, 30, 5));  // 1:30, calificación 5
-    t1.addHistorical(trackSong(2, 0, 4));    // 2:00, calificación 4
-    t1.addHistorical(trackSong(3, 15, 3));   // 3:15, calificación 3
-    t1.addHistorical(trackSong(3, 30, 5));   // 3:30, calificación 5
+    t1.addHistorical(trackSong(1, 30, 5));  
+    t1.addHistorical(trackSong(2, 0, 4));    
+    t1.addHistorical(trackSong(3, 15, 3));   
+    t1.addHistorical(trackSong(3, 30, 5));   
 
-    // Obtener el número de canciones reproducidas con una calificación específica
-    float numPlayed = t1.getNumberSongPlayed(100); // Buscar reproducciones con al menos un 100%
+  
+    float numPlayed = t1.getNumberSongPlayed(100); 
     std::cout << "Numero de veces que se ha reproducido la cancion con al menos 100%: " << numPlayed << std::endl;
-
-    // Obtener la mejor calificación
+	std::cout << " " << std::endl;
+    
     float bestRating = t1.getBestRatingPercent();
     std::cout << "La mejor calificacion porcentual de la cancion es: " << bestRating << "%" << std::endl;
+
+	std::cout << " " << std::endl;  
 
     // Imprimir estrellas para el historial
     std::cout << "Historial de calificaciones en estrellas:\n";
     t1.printStars();
-
+	std::cout << " " << std::endl;  
     // Imprimir historial filtrado por calificación
     std::cout << "Historial de reproducciones con calificacion 5:\n";
     t1.printHistoricalwithRate(5);
-
+	std::cout << " " << std::endl;
     // Imprimir las barras de duración
     std::cout << "Barras de duracion de cada reproduccion:\n";
     t1.printBarPercent();
 
-    // Limpiar el historial
+	std::cout << " " << std::endl;
     t1.ClearHistorical();
     std::cout << "Historial despues de limpiar:\n";
     t1.printStars(); 
