@@ -10,12 +10,14 @@ private:
 
 public:
 
-	std :: string nombre;
+	std::string nombre;
+	std::string getNombre() const;
 
 	song(std::string n, int m, int s);
-	song();	
+	song();
 	int ToSec() const;
-	bool HastheSameTime(song s);
+	bool HastheSameTime(const song& s) const;
+
 
 	void setTiempominutos(int minutos)
 	{
@@ -42,5 +44,12 @@ public:
 	{
 		return tsegundos;
 	}
+
+	//clase 01/11/24
+	friend bool operator==(const song& c1, const song& c2);
+	
+	friend bool operator<(const song& c1, const song& c2);
+
+	void print();
 };
 

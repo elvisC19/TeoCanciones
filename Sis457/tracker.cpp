@@ -83,14 +83,14 @@ void tracker::printBarPercent()
 		int totalDuration = trackerSong.ToSec();
 		int trackDuration = track.playmin * 60 + track.playseg; 
 
-		// Calcular el porcentaje de reproducción
+	
 		float percentage = static_cast<float>(trackDuration) / totalDuration * 100;
 
 		
 		int numBars = static_cast<int>(percentage / 10); 
 		numBars = std::min(numBars, 10); 
 
-		// Imprimir las barras
+		
 		std::cout << "Reproduccion: ";
 		for (int i = 0; i < numBars; ++i) {
 			std::cout << "|";
@@ -99,4 +99,18 @@ void tracker::printBarPercent()
 		std::cout << std::endl;
 		//std::cout << " (" << percentage << "%)\n"; 
 	}
+}
+
+bool tracker::operator<(const tracker& other)const {
+	if (trackerSong.getNombre() == other.trackerSong.getNombre()) {
+
+		return historicalTrack.size() < other.historicalTrack.size();
+	}
+
+	return trackerSong.getNombre() < other.trackerSong.getNombre();
+}
+
+int tracker::getHistoricalTrackSize()const {
+
+	return historicalTrack.size();
 }
