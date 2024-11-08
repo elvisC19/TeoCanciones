@@ -17,30 +17,30 @@ void displaySongComparison(const song& s1, const song& s2) {
         std::cout << "Las canciones no son iguales. " << std::endl;
     }
     if (s1 < s2) {
-        std::cout << s1.getNombre() << " tiene menos duración que " << s2.getNombre() << std::endl;
+        std::cout << s1.getNombre() << " tiene menos duracion que " << s2.getNombre() << std::endl;
     }
     else {
-        std::cout << s2.getNombre() << " tiene menos duración que " << s1.getNombre() << std::endl;
+        std::cout << s2.getNombre() << " tiene menos duracion que " << s1.getNombre() << std::endl;
     }
 }
 
 
 void displayTrackerInfo(tracker& t) {
     float numPlayed = t.getNumberSongPlayed(100);
-    std::cout << "Número de veces que se ha reproducido la canción al 100%: " << numPlayed << std::endl ;
+    std::cout << "Numero de veces que se ha reproducido la cancion al 100%: " << numPlayed << std::endl ;
 
     float bestRating = t.getBestRatingPercent();
-    std::cout << "La mejor calificación porcentual de la canción es: " << bestRating << std::endl ;
+    std::cout << "La mejor calificacion porcentual de la cancion es: " << bestRating << std::endl ;
 
     std::cout << "Historial de calificaciones en estrellas:"<<std::endl ;
     t.printStars();
-    std::cout << "Historial de reproducciones con calificación 5 : "<<std::endl ;
+    std::cout << "Historial de reproducciones con calificacion 5 : "<<std::endl ;
     t.printHistoricalwithRate(5);
-    std::cout << "Barras de duración de cada reproducción: " <<std ::endl ;
+    std::cout << "Barras de duracion de cada reproduccion: " <<std ::endl ;
     t.printBarPercent();
 
     t.ClearHistorical();
-    std::cout << "Historial después de limpiar: "<<std::endl ;
+    std::cout << "Historial despues de limpiar: "<<std::endl ;
     t.printStars();
 }
 
@@ -48,14 +48,14 @@ void displayTrackerInfo(tracker& t) {
 int main()
 {
 
-    song s1("ALAL", 3, 15);
-    song s2("Aleeee", 4, 15);
-    song s3("Locc", 2, 10);
-    song s4("KOll", 3, 30);
-    song s5("Lol", 1, 30);
+    song s1("Canc1", 3, 15);
+    song s2("Can2", 4, 15);
+    song s3("Can3", 2, 10);
+    song s4("Can4", 3, 30);
+    song s5("Can5", 1, 30);
 
  
-    std::cout << "Comparación de canciones:" <<std::endl;
+    std::cout << "Comparacion de canciones:" <<std::endl;
     displaySongComparison(s1, s2);
     std::cout << std::endl;
     displaySongComparison(s3, s4);
