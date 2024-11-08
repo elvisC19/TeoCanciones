@@ -48,21 +48,20 @@ void displayTrackerInfo(tracker& t) {
 int main()
 {
 
-    // Crear canciones de prueba
     song s1("ALAL", 3, 15);
     song s2("Aleeee", 4, 15);
     song s3("Locc", 2, 10);
     song s4("KOll", 3, 30);
     song s5("Lol", 1, 30);
 
-    // Comparar canciones
+ 
     std::cout << "Comparación de canciones:" <<std::endl;
     displaySongComparison(s1, s2);
     std::cout << std::endl;
     displaySongComparison(s3, s4);
     std::cout << std::endl;
 
-    // Crear y configurar un tracker
+
     tracker t1;
     t1.SetSong(s1);
     t1.addHistorical(trackSong(1, 30, 5));
@@ -83,7 +82,7 @@ int main()
     tracker tracker2;
     tracker tracker3;
 
-    // Agregar algunas historias (trackSongs) a cada tracker
+   
     tracker1.addHistorical(trackSong(1, 30, 5));
     tracker1.addHistorical(trackSong(2, 15, 4));
 
@@ -109,7 +108,7 @@ int main()
         }
     }
 
-    // Mostrar resultados
+  
     std::cout << "Tracker con mas historias tiene " << maxTracker->getHistoricalTrackSize() << " historias." << std::endl;
     std::cout << "Tracker con menos historias tiene " << minTracker->getHistoricalTrackSize() << " historias." << std::endl;
 
