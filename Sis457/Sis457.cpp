@@ -8,39 +8,40 @@
 #include "trackSong.h"
 #include "tracker.h"
 
+using namespace std;
 
 void displaySongComparison(const song& s1, const song& s2) {
     if (s1 == s2) {
-        std::cout << "Las canciones son iguales " << std::endl;
+        cout << "Las canciones son iguales " << endl;
     }
     else {
-        std::cout << "Las canciones no son iguales. " << std::endl;
+        cout << "Las canciones no son iguales. " << endl;
     }
     if (s1 < s2) {
-        std::cout << s1.getNombre() << " tiene menos duracion que " << s2.getNombre() << std::endl;
+       cout << s1.getNombre() << " tiene menos duracion que " << s2.getNombre() <<endl;
     }
     else {
-        std::cout << s2.getNombre() << " tiene menos duracion que " << s1.getNombre() << std::endl;
+        cout << s2.getNombre() << " tiene menos duracion que " << s1.getNombre() << endl;
     }
 }
 
 
 void displayTrackerInfo(tracker& t) {
     float numPlayed = t.getNumberSongPlayed(100);
-    std::cout << "Numero de veces que se ha reproducido la cancion al 100%: " << numPlayed << std::endl ;
+    cout << "Numero de veces que se ha reproducido la cancion al 100%: " << numPlayed << endl ;
 
     float bestRating = t.getBestRatingPercent();
-    std::cout << "La mejor calificacion porcentual de la cancion es: " << bestRating << std::endl ;
+    cout << "La mejor calificacion porcentual de la cancion es: " << bestRating << endl ;
 
-    std::cout << "Historial de calificaciones en estrellas:"<<std::endl ;
+    cout << "Historial de calificaciones en estrellas:"<<endl ;
     t.printStars();
-    std::cout << "Historial de reproducciones con calificacion 5 : "<<std::endl ;
+    cout << "Historial de reproducciones con calificacion 5 : "<<endl ;
     t.printHistoricalwithRate(5);
-    std::cout << "Barras de duracion de cada reproduccion: " <<std ::endl ;
+    cout << "Barras de duracion de cada reproduccion: " <<endl ;
     t.printBarPercent();
 
     t.ClearHistorical();
-    std::cout << "Historial despues de limpiar: "<<std::endl ;
+    cout << "Historial despues de limpiar: "<<endl ;
     t.printStars();
 }
 
@@ -55,11 +56,11 @@ int main()
     song s5("Can5", 1, 30);
 
  
-    std::cout << "Comparacion de canciones:" <<std::endl;
+    cout << "Comparacion de canciones:" <<std::endl;
     displaySongComparison(s1, s2);
-    std::cout << std::endl;
+    cout << endl;
     displaySongComparison(s3, s4);
-    std::cout << std::endl;
+    cout << endl;
 
 
     tracker t1;
@@ -70,9 +71,9 @@ int main()
     t1.addHistorical(trackSong(3, 30, 5));
 
     // Mostrar información del tracker
-    std::cout << "Informacion del tracker:" <<std::endl;
+    cout << "Informacion del tracker:" <<endl;
     displayTrackerInfo(t1);
-    std::cout << std::endl;
+    cout << endl;
 
     //01/11/24
    //crear una lista de trakers , determina el traker que tiene mas historias y el que tiene menos historias
@@ -109,8 +110,8 @@ int main()
     }
 
   
-    std::cout << "Tracker con mas historias tiene " << maxTracker->getHistoricalTrackSize() << " historias." << std::endl;
-    std::cout << "Tracker con menos historias tiene " << minTracker->getHistoricalTrackSize() << " historias." << std::endl;
+    cout << "Tracker con mas historias tiene " << maxTracker->getHistoricalTrackSize() << " historias." << endl;
+    cout << "Tracker con menos historias tiene " << minTracker->getHistoricalTrackSize() << " historias." << endl;
 
 	return 0;
 

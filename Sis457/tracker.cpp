@@ -97,7 +97,7 @@ void tracker::printBarPercent()
 		}
 
 		std::cout << std::endl;
-		//std::cout << " (" << percentage << "%)\n"; 
+		
 	}
 }
 
